@@ -6,7 +6,8 @@ import 'package:provider/provider.dart';
 
 class AplicationBinding extends StatelessWidget {
   final Widget child;
-  const AplicationBinding({Key? key, required this.child}) : super(key: key);
+  const AplicationBinding({Key? key, 
+  required this.child}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

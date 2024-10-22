@@ -7,11 +7,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../repositories/products/products_repository.dart';
 
-class HOmeController extends Cubit<HomeState> {
+class HomeController extends Cubit<HomeState> {
   final ProductsRepository _productsRepository;
-  HOmeController(
+  HomeController(
     this._productsRepository,
-  ) : super(HomeState.initial());
+  ) : super(const HomeState.initial());
 
   Future<void> loadProducts() async {
     emit(state.copyWith(status: HomeStateStatus.loading));

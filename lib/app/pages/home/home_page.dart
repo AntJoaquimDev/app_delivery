@@ -10,7 +10,7 @@ import 'package:delivery_app/app/core/ui/widgets/delivery_products_tile.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:delivery_app/app/pages/home/hOme_controller.dart';
+import 'package:delivery_app/app/pages/home/home_controller.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class HomePage extends StatefulWidget {
@@ -20,18 +20,18 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends BaseState<HomePage, HOmeController> {
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-  //     controller.loadProducts();
-  //   });
-  // }
+class _HomePageState extends BaseState<HomePage, HomeController> {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      controller.loadProducts();
+    });
+  }
 
   @override
   void onReady() {
-    // SharedPreferences.getInstance().then((value) => value.clear()); // limpar o sharedPref
+     SharedPreferences.getInstance().then((value) => value.clear()); // limpar o sharedPref
     controller.loadProducts();
   }
 
@@ -39,7 +39,7 @@ class _HomePageState extends BaseState<HomePage, HOmeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: DeliveryAppbar(),
-      body: BlocConsumer<HOmeController, HomeState>(
+      body: BlocConsumer<HomeController, HomeState>(
           listener: (context, state) {
             state.status.matchAny(
                 any: () => hiderLoader(),
@@ -68,7 +68,7 @@ class _HomePageState extends BaseState<HomePage, HOmeController> {
                           .where((order) => order.product == product);
                       return DeliveryProductsTile(
                         product: product,
-                        orderProduc: order.isNotEmpty ? order.first : null,
+                        orderProduct: order.isNotEmpty ? order.first : null,
                       );
                     },
                   ),

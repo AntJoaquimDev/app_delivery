@@ -4,7 +4,7 @@ import 'package:delivery_app/app/core/ui/styles/colors_app.dart';
 
 import 'package:delivery_app/app/dto/order_product_dto.dart';
 
-import 'package:delivery_app/app/pages/home/hOme_controller.dart';
+import 'package:delivery_app/app/pages/home/home_controller.dart';
 import 'package:flutter/material.dart';
 
 import 'package:delivery_app/app/models/product_model.dart';
@@ -12,22 +12,22 @@ import 'package:provider/provider.dart';
 
 class DeliveryProductsTile extends StatelessWidget {
   final ProductModel product;
-  final OrderProductDto? orderProduc;
+  final OrderProductDto? orderProduct;
   const DeliveryProductsTile({
     super.key,
     required this.product,
-    required this.orderProduc,
+    required this.orderProduct,
   });
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () async {
-        final controller = context.read<HOmeController>();
+        final controller = context.read<HomeController>();
         final orderProductResult =
             await Navigator.of(context).pushNamed('/productDetail', arguments: {
           'product': product,
-          'order': orderProduc,
+          'order': orderProduct,
         });
 
         if (orderProductResult != null) {
@@ -45,7 +45,7 @@ class DeliveryProductsTile extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(bottom: 8),
                     child: Text(product.name,
-                        style: TextStyle(
+                        style:const TextStyle(
                             fontSize: 16, fontWeight: FontWeight.bold)),
                   ),
                   Padding(

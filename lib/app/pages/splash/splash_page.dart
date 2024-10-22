@@ -8,6 +8,7 @@ class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       body: ColoredBox(
         color: Color(0XFF140E0E),
         child: Stack(
@@ -36,11 +37,21 @@ class SplashPage extends StatelessWidget {
                     label: 'ACESSAR',
                     onpressed: () {
                       Navigator.of(context).popAndPushNamed('/home');
+                      //Navigator.of(context).popAndPushNamed('/productDetail');
                     },
                   ),
+                  SizedBox(
+                    height: context.percentHeigth(.30),
+                  ),
+                  const Align(
+                    alignment: Alignment.bottomRight,
+                    child: Text('      Ant. Joaquim' , style:TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.bold,color: Colors.amber)),
+                  )
                 ],
               ),
-            )
+            ),
+           
           ],
         ),
       ),

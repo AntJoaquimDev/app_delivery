@@ -6,7 +6,11 @@ import 'package:provider/provider.dart';
 class ProductDetailRoute {
   ProductDetailRoute._();
   static Widget get page => MultiProvider(
-        providers: [Provider(create: (context) => ProductDetailController())],
+        providers: [
+          Provider(
+            create: (context) => ProductDetailController(),
+          ),
+        ],
         builder: (context, child) {
           final args = ModalRoute.of(context)!.settings.arguments
               as Map<String, dynamic>;

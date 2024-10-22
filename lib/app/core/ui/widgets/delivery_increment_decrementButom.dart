@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:delivery_app/app/core/ui/styles/colors_app.dart';
-import 'package:delivery_app/app/core/ui/styles/text_style.dart';
 
 class DeliveryIncrementDecrementButom extends StatelessWidget {
   final bool _compact;

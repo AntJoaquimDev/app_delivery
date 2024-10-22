@@ -42,7 +42,7 @@ class _ProductDetailPageState
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
-                child: Text(
+                child: const Text(
                   'Cancelar',
                   style: TextStyle(color: Colors.red),
                 ),
@@ -57,7 +57,7 @@ class _ProductDetailPageState
                     ),
                   );
                 },
-                child: Text(
+                child: const Text(
                   'Confirmar',
                   style: TextStyle(color: Colors.black),
                 ),
@@ -85,11 +85,9 @@ class _ProductDetailPageState
                 ),
               ),
             ),
-            const SizedBox(
-              height: 10,
-            ),
+            const SizedBox(height: 10),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 10),
               child: Text(
                 widget.product.name,
                 style: TextStyle(fontFamily: font, fontWeight: FontWeight.bold),
@@ -109,7 +107,7 @@ class _ProductDetailPageState
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Container(
+                SizedBox(
                   height: 42,
                   width: context.percentWidth(.5),
                   child: BlocBuilder<ProductDetailController, int>(
@@ -125,7 +123,7 @@ class _ProductDetailPageState
                 Container(
                   width: context.percentWidth(.5),
                   height: 60,
-                  padding: EdgeInsets.all(8),
+                  padding: const EdgeInsets.all(8),
                   child: BlocBuilder<ProductDetailController, int>(
                     // selector: ((state) => state), er mas a fente no curso
                     builder: (context, amount) {
@@ -148,7 +146,7 @@ class _ProductDetailPageState
                         },
                         child: Visibility(
                           visible: amount > 0,
-                          replacement: Text(
+                          replacement: const Text(
                             'Excluir Produto',
                           ),
                           child: Row(

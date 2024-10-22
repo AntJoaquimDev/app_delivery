@@ -1,4 +1,4 @@
-// ignore_for_file: non_constant_identifier_names
+
 
 import 'package:flutter/material.dart';
 
@@ -12,6 +12,7 @@ class TextStyles {
   }
 
   String get font => 'mplus1';
+
   TextStyles({required String fontFamily, required FontWeight fontWeight});
 
   TextStyle get textLight =>

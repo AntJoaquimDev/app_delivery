@@ -2,7 +2,6 @@
 import 'package:delivery_app/app/core/extensions/formatter_extensions.dart';
 import 'package:delivery_app/app/core/ui/base_state/base_state.dart';
 import 'package:delivery_app/app/core/ui/widgets/delivery_buttom.dart';
-import 'package:delivery_app/app/dto/order_dto.dart';
 import 'package:delivery_app/app/models/payment_type_model.dart';
 import 'package:delivery_app/app/pages/order/widget/order_controller.dart';
 import 'package:delivery_app/app/pages/order/widget/order_state.dart';
@@ -19,6 +18,8 @@ import 'package:delivery_app/app/pages/order/widget/order_field.dart';
 import 'package:delivery_app/app/pages/order/widget/order_product_tile.dart';
 
 class OrderPage extends StatefulWidget {
+  const OrderPage({super.key});
+
   @override
   State<OrderPage> createState() => _OrderPageState();
 }
@@ -27,6 +28,7 @@ class _OrderPageState extends BaseState<OrderPage, OrderController> {
   final formKey = GlobalKey<FormState>();
   final addressEC = TextEditingController();
   final documentEC = TextEditingController();
+  final phoneEC = TextEditingController();
   int? paymenteTypeId;
   final paymentTypeValid = ValueNotifier<bool>(true);
 
@@ -44,8 +46,21 @@ class _OrderPageState extends BaseState<OrderPage, OrderController> {
         builder: (context) {
           final productDelete = state.orderProduct.product.name;
           return AlertDialog(
-            title: Text('Deseja Excluir o produto? $productDelete'),
+            title: Column(
+              children: [
+                const Text('Deseja Excluir o produto? '),
+                Text(productDelete,
+                    style: context.textStyle.textBold
+                        .copyWith(color: Colors.green)),
+              ],
+            ),
             actions: [
+              SizedBox(
+                width: 100,
+                height: 100,
+                child: Image.network(state.orderProduct.product.image,
+                    fit: BoxFit.cover),
+              ),
               TextButton(
                 onPressed: () {
                   Navigator.of(context).pop();
@@ -191,7 +206,7 @@ class _OrderPageState extends BaseState<OrderPage, OrderController> {
                         controller: addressEC,
                         validator:
                             Validatorless.required('Endereço obrigatório'),
-                        hintText: 'Informr um endereço',
+                        hintText: 'Informe um endereço',
                       ),
                       const SizedBox(
                         height: 10,
@@ -200,10 +215,17 @@ class _OrderPageState extends BaseState<OrderPage, OrderController> {
                         title: 'CPF',
                         controller: documentEC,
                         validator: Validatorless.required('CPF obrigatório'),
-                        hintText: 'Informr o CPF',
+                        hintText: 'Informe o CPF',
                       ),
                       const SizedBox(
                         height: 20,
+                      ),
+                      OrderField(
+                        title: 'Telefone',
+                        controller: phoneEC,
+                        validator:
+                            Validatorless.required('Telefone obrigatório'),
+                        hintText: 'Informe o Telefone',
                       ),
                       BlocSelector<OrderController, OrderState,
                           List<PaymentTypeModel>>(
@@ -232,7 +254,7 @@ class _OrderPageState extends BaseState<OrderPage, OrderController> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Divider(
+                      const Divider(
                         color: Colors.grey,
                       ),
                       Padding(

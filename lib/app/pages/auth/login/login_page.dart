@@ -134,7 +134,7 @@ class _LoginPageState extends BaseState<LoginPage, LoginController> {
                   ],
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),

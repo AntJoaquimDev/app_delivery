@@ -21,7 +21,7 @@ class HomeState extends Equatable {
   final String? errorMessage;
   final List<OrderProductDto> shoppingBag;
 
-  HomeState({
+ const HomeState({
     // this.,
     required this.status,
     required this.products,

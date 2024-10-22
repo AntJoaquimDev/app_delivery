@@ -1,7 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:delivery_app/app/core/extensions/formatter_extensions.dart';
 import 'package:delivery_app/app/core/ui/helpers/size_extensions.dart';
-import 'package:delivery_app/app/pages/home/hOme_controller.dart';
+import 'package:delivery_app/app/pages/home/home_controller.dart';
 import 'package:flutter/material.dart';
 
 import 'package:delivery_app/app/dto/order_product_dto.dart';
@@ -14,7 +14,7 @@ class ShoppingBagWidget extends StatelessWidget {
 
   Future<void> _goOrder(BuildContext context) async {
     final navigator = Navigator.of(context);
-    final controller = context.read<HOmeController>();
+    final controller = context.read<HomeController>();
     final sp = await SharedPreferences.getInstance();
     //sp.clear(); //limpar sharedPrefences
     if (!sp.containsKey('accessToken')) {
@@ -30,7 +30,7 @@ class ShoppingBagWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var totalBag = bag
+    var totalBag = bag 
         .fold<double>(0.0, (total, element) => total += element.totalPrice)
         .currencyPTBR;
     return Container(

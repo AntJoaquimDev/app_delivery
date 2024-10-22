@@ -1,4 +1,4 @@
-import 'package:delivery_app/app/pages/home/hOme_controller.dart';
+import 'package:delivery_app/app/pages/home/home_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -17,7 +17,7 @@ class HomeRouter {
             ),
           ),
           Provider(
-            create: (context) => HOmeController(context.read()),
+            create: (context) => HomeController(context.read()),
           ),
         ],
         child: const HomePage(),

@@ -1,9 +1,7 @@
 import 'package:delivery_app/app/core/ui/helpers/size_extensions.dart';
 import 'package:delivery_app/app/core/ui/styles/colors_app.dart';
 import 'package:delivery_app/app/core/ui/styles/text_style.dart';
-import 'package:delivery_app/app/core/ui/widgets/delivery_appbar.dart';
 import 'package:delivery_app/app/core/ui/widgets/delivery_buttom.dart';
-import 'package:delivery_app/app/delivery_app.dart';
 import 'package:flutter/material.dart';
 
 class OrderCompletPage extends StatelessWidget {

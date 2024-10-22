@@ -12,6 +12,7 @@ class OrderField extends StatelessWidget {
     required this.controller,
     required this.validator,
     required this.hintText,
+    
   });
 
   @override

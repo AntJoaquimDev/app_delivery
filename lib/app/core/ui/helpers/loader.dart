@@ -20,6 +20,6 @@ mixin Loader<T extends StatefulWidget> on State<T> {
       isOpen = false;
       Navigator.of(context).pop();
     }
-    ;
+    
   }
 }
